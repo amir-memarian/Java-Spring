@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="questionBean01" class="question.Question01">
+        <constructor-arg name="id" value="111"/>
+        <constructor-arg name="name" value="What is java?"/>
+        <constructor-arg name="answers">
+            <list>
+                <value>Java is classA programming language</value>
+                <value>Java is classA Platform</value>
+                <value>Java is an Island of Indonasia</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="answerBean01" class="question.Answer">
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="name" value="Java is classA programming language"/>
+        <constructor-arg name="by" value="John"/>
+    </bean>
+    <bean id="answerBean02" class="question.Answer">
+        <constructor-arg name="id" value="2"/>
+        <constructor-arg name="name" value="Java is classA Platform"/>
+        <constructor-arg name="by" value="Ravi"/>
+    </bean>
+    <bean id="questionBean02" class="question.Question02">
+        <constructor-arg name="id" value="111"/>
+        <constructor-arg name="name" value="What is java?"/>
+        <constructor-arg name="answers">
+            <list>
+                <ref bean="answerBean01"/>
+                <ref bean="answerBean02"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="questionBean03" class="question.Question03">
+        <constructor-arg name="id" value="11"/>
+        <constructor-arg name="name" value="What is Java?"/>
+        <constructor-arg name="answers">
+            <map>
+                <entry key="Java is classA Programming Language"  value="Ajay Kumar"/>
+                <entry key="Java is classA Platform" value="John Smith"/>
+                <entry key="Java is an Island" value="Raj Kumar"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+
+</beans>

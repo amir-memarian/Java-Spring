@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="object" class="aop.old.AOPClassA"/>
+    <bean id="beforeAdvisor" class="aop.old.AOPBeforeAdvisor"/>
+    <bean id="afterAdvisor" class="aop.old.AOPAfterAdvisor"/>
+    <bean id="aroundAdvisor" class="aop.old.AOPAroundAdvisor"/>
+    <bean id="throwsAdvisor" class="aop.old.AOPThrowsAdvisor"/>
+
+    <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="object"/>
+        <property name="interceptorNames">
+            <list>
+                <value>beforeAdvisor</value>
+                <value>aroundAdvisor</value>
+                <value>afterAdvisor</value>
+                <value>throwsAdvisor</value>
+            </list>
+        </property>
+    </bean>
+</beans>

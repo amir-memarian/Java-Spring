@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="classFactoryABean01" class="factory.ClassFactoryA" factory-method="getClassFactoryA"/>
+
+    <bean id="printableFactoryBean01" class="factory.PrintableFactory01" factory-method="getPrintable"/>
+
+    <bean id="noStaticFactory" class="factory.PrintableFactory02"/>
+    <bean id="printableFactoryBean02" class="factory.PrintableFactory02"
+          factory-method="getPrintable" factory-bean="noStaticFactory"/>
+
+
+</beans>
